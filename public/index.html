@@ -3,23 +3,23 @@
 <head>
 	<title>Book Goals</title>
 	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="normalize.css">
 </head>
 <body ng-app="readingGoals">
 
 	<div>Book Goals</div>
 	<ng-view></ng-view>
 
-<!-- Jquery -->
-	<script src="scripts/jquery-1.2.6.js"></script>
-	<script src="scripts/jquery.xml2json.js"></script>
-	<script src="scripts/jquery.xml2json.pack.js"></script>
+<script src="scripts/xml2json.js"></script>
 <!-- Angular -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular-route.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular-route.js"></script>
 <!-- App -->
 	<script src="app.js"></script>
 <!-- Controllers -->
 	<script src="controllers/bookCtrl.js"></script>
+	<script src="controllers/loginCtrl.js"></script>
 <!-- Services -->
 	<script src="services/goodreadsService.js"></script>
 

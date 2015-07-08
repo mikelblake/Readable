@@ -1,4 +1,7 @@
-<div ng-repeat="book in books">
-	<img ng-src="{{book.image_url}}">
-	<h2> {{ book.title }}</h2>
+<div class="containter book-row">
+	<div ng-repeat="data in books">
+		<h2 class="book-title"> {{ data.book.title }}</h2>
+		<img ng-src="{{data.book.image_url}}">
+		<h5> {{ data.book.num_pages }} </h5>
+	</div>
 </div>

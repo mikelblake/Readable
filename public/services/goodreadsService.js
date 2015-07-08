@@ -1,14 +1,21 @@
 var app = angular.module('readingGoals');
 
 app.service('goodreadsService', function($http, $q){
-	this.getBooks = function(){
-		var dfd =  $q.defer();
-		$http.get('https://www.goodreads.com/review/list/993466?format=xml&key=wXIuvQ4Icx6bai2S7FxwLQ&v=2')
-		.then(function(data){
-			console.log(data);
-			var bookData = $.xml2json(data);
-			dfd.resolve();
+	this.getBooks = function(callback){
+    var dfd = $q.defer();
+    console.log('get books');
+		$http({
+		    method: 'GET', 
+		    url: 'http://localhost:8888/api/reviews'  
+		}).then(function(data){
+		    var x2js = new X2JS(); 
+		    var json = x2js.xml_str2json(data.data); 
+		    dfd.resolve(json.GoodreadsResponse.reviews.review); 
+		    // dfd.resolve(data); 
 		});
+
 		return dfd.promise;
-	};
+    };
+
+
 });

@@ -1,0 +1,15 @@
+.containter {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.book-row {
+	/*margin: auto;*/
+	height: 100px;
+}
+
+.book-title {
+	font-size: 16px;
+	word-wrap: break-word;
+	width: 100px;
+}

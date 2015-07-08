@@ -4,8 +4,8 @@ app.config(function($routeProvider){
 
 	$routeProvider
 	.when('/login', {
-		templateUrl: '',
-		controller: ''
+		templateUrl: 'templates/login.html',
+		controller: 'loginCtrl'
 	})
 
 	.when('/home', {
@@ -14,7 +14,7 @@ app.config(function($routeProvider){
 	})
 
 	.otherwise({
-		redirectTo: '/'
+		redirectTo: '/login'
 	});
 
 });
