@@ -1,7 +1,12 @@
 <div class="containter book-row">
-	<div ng-repeat="data in books">
+	<div class="border" ng-repeat="data in books">
+		<img ng-click="toggleModal()" ng-src="{{data.book.image_url}}">
 		<h2 class="book-title"> {{ data.book.title }}</h2>
-		<img ng-src="{{data.book.image_url}}">
 		<h5> {{ data.book.num_pages }} </h5>
 	</div>
 </div>
+
+<modal-dialog show='modalShown' width='750px' height='60%'>
+  <p>Create a goal for finishing this book!<p>
+</modal-dialog>
+

@@ -10,6 +10,7 @@ app.service('goodreadsService', function($http, $q){
 		}).then(function(data){
 		    var x2js = new X2JS(); 
 		    var json = x2js.xml_str2json(data.data); 
+		    console.log(data.data);
 		    dfd.resolve(json.GoodreadsResponse.reviews.review); 
 		    // dfd.resolve(data); 
 		});

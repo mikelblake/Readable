@@ -4,12 +4,25 @@ var express = require('express'),
 	passport = require('passport'),
   request = require('request'),
   session = require('express-session'),
-	GoodreadsStrategy = require('passport-goodreads').Strategy;
-	// mongoose = require('mongoose');
+	GoodreadsStrategy = require('passport-goodreads').Strategy,
+	mongoose = require('mongoose'),
+  mongoUri = 'mongodb://localhost:27017/readable';
+  
 
-
+require('request-debug')(request);
 var app = express();
 var port = 8888;
+
+// CONTROLLERS
+
+var bookCtrl = require('./controllers/bookCtrl');
+var userCtrl = require('./controllers/userCtrl');
+var User = require('./models/user');
+
+mongoose.connect(mongoUri);
+mongoose.connection.once('open', function(){
+  console.log('Connceted to Mongo at ', mongoUri);
+});
 
 app.use(express.static(__dirname + '/public'));
 
@@ -23,7 +36,7 @@ passport.use(new GoodreadsStrategy({
   },
   function(token, tokenSecret, profile, done) {
     // User.findOrCreate({ goodreadsId: profile.id }, function (err, user) {
-      // return done(err, user);
+    //   return done(err, user);
     // });
     return done(null, profile);
   }
@@ -31,10 +44,12 @@ passport.use(new GoodreadsStrategy({
 
 passport.serializeUser(function(user, done){
   done(null, user);
+  return user;
 });
 
 passport.deserializeUser(function(obj, done){
   done(null, obj);
+  return obj; 
 });
 
 app.use(session({
@@ -51,17 +66,24 @@ app.get('/', function(req, res){
 app.get('/auth/goodreads',
   passport.authenticate('goodreads'));
 
+app.get('/user/', function(req, res){
+   request.get('https://www.goodreads.com/api/auth_user', function(err, res, body){
+      if(err) console.log(err); 
+      return res;
+    });
+
+    
+});
+
 app.get('/auth/goodreads/callback', 
-  passport.authenticate('goodreads', { failureRedirect: '/login' }),
+  passport.authenticate('goodreads', { failureRedirect: '/#/login' }),
   function(req, res) {
-    // Successful authentication, redirect home.
     res.redirect('/#/home');
 
   });
 
 app.get('/api/reviews', function(req, res){
-  console.log(req.user);
-  request.get('https://www.goodreads.com/review/list/993466?key=wXIuvQ4Icx6bai2S7FxwLQ&v=2&format=xml', function(err, response, body){
+  request.get('https://www.goodreads.com/review/list/'+req.user.id+'?key=wXIuvQ4Icx6bai2S7FxwLQ&v=2&format=xml', function(err, response, body){
     if(err){
       res.status(500).json(err);
     } else {
@@ -70,6 +92,19 @@ app.get('/api/reviews', function(req, res){
     }
   });
 });
+
+// //Book endpoints
+// app.get('/api/products', bookCtrl.readProduct);
+
+
+
+// //User endpoints
+
+// app.post('/api/user', userCtrl.createUser);
+app.get('/api/user', userCtrl.readUser);
+// app.put('/api/user/:id', userCtrl.updateUser);
+// app.delete('/api/user', userCtrl.deleteUser);
+
 
 app.listen(port, function(){
 	console.log('listening on port....', port);
