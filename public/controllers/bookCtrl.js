@@ -21,8 +21,6 @@ app.controller('bookCtrl', function($scope, goodreadsService){
     var pageNums = book.book.num_pages;
     console.log(pageNums);
     $scope.goalPages = Math.ceil(pageNums / diffDays);
-    console.log(goalPages);
-
 
     // var today = moment();
     // console.log(today);

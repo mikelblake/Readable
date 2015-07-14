@@ -9,7 +9,8 @@
 		  <datepicker date-format="longDate">
 		  	<input ng-model="date" type="text" ng-change="onChange(date, data)"/>
 			</datepicker>
-			<p>You should read {{ goalPages }} each day!
+			<p>You should read {{ goalPages }} pages each day!
+			<div ng-src="{{data.book.image_url}}"></div>
 		</modal-dialog>
 
 	</div>
