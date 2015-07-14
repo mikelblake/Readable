@@ -7,9 +7,16 @@ app.controller('bookCtrl', function($scope, goodreadsService){
 				$scope.books = data;
 			});
 
-	$scope.modalShown = false;
-  $scope.toggleModal = function() {
-    $scope.modalShown = !$scope.modalShown;
+	$scope.modalShown = [];
+  $scope.toggleModal = function(index) {
+    console.log(index, $scope.modalShown[index])
+    if(!$scope.modalShown[index]){
+      $scope.modalShown[index] = true;
+    } else {
+      $scope.modalShown[index] = false;
+    }
+    console.log($scope.modalShown[index])
+    // $scope.modalShown[index] = !$scope.modalShown[index];
   };
 
   $scope.onChange = function(date, book){

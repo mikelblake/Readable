@@ -1,16 +1,16 @@
 <div class="containter book-row">
 	<div class="border" ng-repeat="data in books">
-		<img ng-click="toggleModal()" ng-src="{{data.book.image_url}}">
+		<img ng-click="toggleModal($index)" ng-src="{{data.book.image_url}}">
 		<h2 class="book-title"> {{ data.book.title }}</h2>
 		<h5> {{ data.book.num_pages }} </h5>
 		
-		<modal-dialog show='modalShown' width='750px' height='60%'>
+		<modal-dialog show='modalShown[$index]' width='750px' height='60%'>
 		  <p>Create a goal for finishing this book!<p>
 		  <datepicker date-format="longDate">
 		  	<input ng-model="date" type="text" ng-change="onChange(date, data)"/>
 			</datepicker>
 			<p>You should read {{ goalPages }} pages each day!
-			<div ng-src="{{data.book.image_url}}"></div>
+			<img ng-src="{{data.book.image_url}}">
 		</modal-dialog>
 
 	</div>
