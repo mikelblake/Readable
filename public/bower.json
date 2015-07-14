@@ -1,0 +1,19 @@
+{
+  "name": "personal-project",
+  "version": "0.0.0",
+  "homepage": "https://github.com/mikelblake/personal-project",
+  "authors": [
+    "Mikel Blake <mikel.blake@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angularjs-datepicker": "~0.2.5"
+  }
+}

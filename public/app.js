@@ -1,4 +1,4 @@
-var app = angular.module('readingGoals', ['ngRoute']);
+var app = angular.module('readingGoals', ['ngRoute', '720kb.datepicker']);
 
 app.config(function($routeProvider){
 

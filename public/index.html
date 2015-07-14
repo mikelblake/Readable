@@ -2,19 +2,22 @@
 <html>
 <head>
 	<title>Readable</title>
-	<link rel="stylesheet" href="styles.css">
 	<link rel="stylesheet" href="normalize.css">
+	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="bower_components/angularjs-datepicker/src/css/angular-datepicker.css">
 </head>
 <body ng-app="readingGoals">
 
 	<div class="header">Readable</div>
 	<ng-view></ng-view>
-
-<script src="scripts/xml2json.js"></script>
+	
+<!-- XML to Json conversion -->
+	<script src="scripts/xml2json.js"></script>
 <!-- Angular -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular-route.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular-route.js"></script>
+  <script src="bower_components/angularjs-datepicker/src/js/angular-datepicker.js"></script>
 <!-- App -->
 	<script src="app.js"></script>
 <!-- Controllers -->
@@ -22,7 +25,7 @@
 	<script src="controllers/loginCtrl.js"></script>
 <!-- Services -->
 	<script src="services/goodreadsService.js"></script>
-
+<!-- Directives -->
 	<script src="directives/modalDialog.js"></script>
 
 </body>
