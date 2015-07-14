@@ -3,13 +3,16 @@
 		<img ng-click="toggleModal()" ng-src="{{data.book.image_url}}">
 		<h2 class="book-title"> {{ data.book.title }}</h2>
 		<h5> {{ data.book.num_pages }} </h5>
+		
+		<modal-dialog show='modalShown' width='750px' height='60%'>
+		  <p>Create a goal for finishing this book!<p>
+		  <datepicker date-format="longDate">
+		  	<input ng-model="date" type="text" ng-change="onChange(date, data)"/>
+			</datepicker>
+			<p>You should read {{ goalPages }} each day!
+		</modal-dialog>
+
 	</div>
 </div>
 
-<modal-dialog show='modalShown' width='750px' height='60%'>
-  <p>Create a goal for finishing this book!<p>
-  <datepicker date-format="longDate">
-  	<input ng-model="date" type="text"/>
-	</datepicker>
-</modal-dialog>
 
