@@ -8,8 +8,7 @@ app.controller('bookCtrl', function($scope, goodreadsService, $http){
         goodreadsService.getBooks('currently-reading').then(
           function(data){
             $scope.books = booksArr.concat(data);
-            console.log($scope.books);
-            console.log(data[0].shelves.shelf._name);
+            // console.log($scope.books);
           });
 			});
   
@@ -22,7 +21,6 @@ app.controller('bookCtrl', function($scope, goodreadsService, $http){
     } else {
       $scope.modalShown[index] = false;
     }
-    console.log($scope.modalShown[index]);
     // $scope.modalShown[index] = !$scope.modalShown[index];
   };
 
@@ -31,10 +29,9 @@ app.controller('bookCtrl', function($scope, goodreadsService, $http){
     var goalDate = new Date(date);
     var timeDiff = Math.abs(goalDate.getTime() - today.getTime());
     var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
-    console.log(diffDays);
     var pageNums = book.book.num_pages;
-    console.log(pageNums);
-    $scope.goalPages = Math.ceil(pageNums / diffDays);
+    var goalPages = Math.ceil(pageNums / diffDays);
+    $scope.message = "You should read " + goalPages + " pages each day!";
 
     // var today = moment();
     // console.log(today);

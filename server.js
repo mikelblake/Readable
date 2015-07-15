@@ -94,7 +94,6 @@ app.get('/api/reviews/:shelftype', function(req, res){
 
 app.get('/logout', function(req, res){
   req.logout();
-  console.log(22222);
   res.redirect('/#/login');
 });
 

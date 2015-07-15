@@ -1,6 +1,7 @@
-<div class="header">Readable</div>	
-
-<a href="/logout"><button>Logout</button></a>
+<div class="">Readable</div>	
+<div align="right">
+	<a href="/logout"><button>Logout</button></a>
+</div>
 
 <div class="containter book-row">
 	<div class="border" ng-repeat="data in books">
@@ -9,14 +10,14 @@
 		<h3> {{ data.book.authors.author.name }} </h3>
 		
 		<modal-dialog show='modalShown[$index]' width='620px' height='67%'>
-			<p class="header">Create a goal for finishing this book!<p>
+			<p class="">Create a goal for finishing this book!<p>
 			<div class="col1">
 			  <datepicker date-format="longDate">
 			  	<input placeholder="Choose a date" ng-model="date" type="text" ng-change="onChange(date, data)"/>
 				</datepicker>
 			</div>
 			<div class="col2">
-				<p class="modalImage">You should read {{ goalPages }} pages each day!</p>
+				<p class="modalImage"> {{ message }} </p>
 				<img class="modalImage" ng-src="{{data.book.image_url}}">
 			</div>
 		</modal-dialog>
