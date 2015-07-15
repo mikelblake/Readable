@@ -1,7 +1,40 @@
+* {
+  color: #40576E;
+  font-family: 'Poiret One', cursive;
+}
+
+.backgroundImg {
+  background: url("images/books-484766_1920.jpg") no-repeat center center fixed;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   background-size: cover;
+   -o-background-size: cover;
+   -ms-background-size: cover;
+   height: 700px;
+}
+
 .header {
 	text-align: center;
-	font-size: 44px;
+	font-size: 75px;
 	color: #40576E;
+  padding: 100px 0;
+}
+
+.wrapper {
+  width: 55%;
+}
+
+.wordWrap {
+  text-align: center;
+}
+
+.loginButton {
+  
+  padding: 20px;
+}
+
+a {
+  text-decoration: none;
 }
 
 .containter {
@@ -15,13 +48,18 @@
 }
 
 .book-title {
-	font-size: 16px;
+	font-size: 25px;
 	word-wrap: break-word;
-	width: 100px;
+	width: 250px;
 }
 
 .border {
 	margin: 10px;
+}
+
+.bookCover {
+  height: 350px;
+  width: 250px;
 }
 /*********************** MODAL STYLES ***********************/
 .ng-modal-overlay {
@@ -65,4 +103,18 @@
   display: inline-block;
   font-weight: bold;
   font-family: 'arial', 'sans-serif';
+}
+
+.modalImage {
+  padding-left: 25%;
+}
+
+.col1 {
+ width: 48%;
+ margin: 15px;
+}
+
+.col2 {
+  float: right;
+  width: 48%;
 }

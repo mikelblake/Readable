@@ -82,15 +82,20 @@ app.get('/auth/goodreads/callback',
 
   });
 
-app.get('/api/reviews', function(req, res){
-  request.get('https://www.goodreads.com/review/list/'+req.user.id+'?key=wXIuvQ4Icx6bai2S7FxwLQ&v=2&format=xml', function(err, response, body){
+app.get('/api/reviews/:shelftype', function(req, res){
+  request.get('https://www.goodreads.com/review/list/'+req.user.id+'?key=wXIuvQ4Icx6bai2S7FxwLQ&v=2&format=xml&per_page=200&shelf=' + req.params.shelftype, function(err, response, body){
     if(err){
       res.status(500).json(err);
     } else {
-      console.log(body);
       res.json(body);
     }
   });
+});
+
+app.get('/logout', function(req, res){
+  req.logout();
+  console.log(22222);
+  res.redirect('/#/login');
 });
 
 // //Book endpoints

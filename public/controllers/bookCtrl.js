@@ -1,21 +1,28 @@
 var app = angular.module('readingGoals');
 
-app.controller('bookCtrl', function($scope, goodreadsService){
+app.controller('bookCtrl', function($scope, goodreadsService, $http){
 
-	goodreadsService.getBooks().then(
+	goodreadsService.getBooks('to-read').then(
 			function(data){
-				$scope.books = data;
+        var booksArr = data;
+        goodreadsService.getBooks('currently-reading').then(
+          function(data){
+            $scope.books = booksArr.concat(data);
+            console.log($scope.books);
+            console.log(data[0].shelves.shelf._name);
+          });
 			});
+  
 
 	$scope.modalShown = [];
   $scope.toggleModal = function(index) {
-    console.log(index, $scope.modalShown[index])
+    console.log(index, $scope.modalShown[index]);
     if(!$scope.modalShown[index]){
       $scope.modalShown[index] = true;
     } else {
       $scope.modalShown[index] = false;
     }
-    console.log($scope.modalShown[index])
+    console.log($scope.modalShown[index]);
     // $scope.modalShown[index] = !$scope.modalShown[index];
   };
 
@@ -45,5 +52,5 @@ app.controller('bookCtrl', function($scope, goodreadsService){
     // var diff = Math.abs(bookDate - today);
     // var days = (((diff/1000)/60)/60)/24;
     // console.log(days)
-  }
+  };
 });
