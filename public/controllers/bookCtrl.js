@@ -1,6 +1,15 @@
 var app = angular.module('readingGoals');
 
-app.controller('bookCtrl', function($scope, goodreadsService, $http){
+app.controller('bookCtrl', function($scope, goodreadsService, $http, $timeout){
+  // $scope.value = $scope.progressValue;
+  // $scope.max = 100;
+  // $scope.type = 'active';
+
+  // $scope.dateSet;
+  // $scope.dateMinLimit;
+  // $scope.MaxLimit;
+
+$scope.pages = 0;
 
 	goodreadsService.getBooks('to-read').then(
 			function(data){
@@ -12,7 +21,7 @@ app.controller('bookCtrl', function($scope, goodreadsService, $http){
           });
 			});
   
-
+//////////// Show modal when click on book ////////////
 	$scope.modalShown = [];
   $scope.toggleModal = function(index) {
     console.log(index, $scope.modalShown[index]);
@@ -24,6 +33,15 @@ app.controller('bookCtrl', function($scope, goodreadsService, $http){
     // $scope.modalShown[index] = !$scope.modalShown[index];
   };
 
+////////////// Pages Progress Bar //////////////
+  
+  // var amt = 75;
+  
+  // $scope.countTo = amt;
+  // $scope.countFrom = 0;
+  
+  
+////////////// Calculate Pages ///////////////
   $scope.onChange = function(date, book){
     var today = new Date();
     var goalDate = new Date(date);
@@ -32,6 +50,12 @@ app.controller('bookCtrl', function($scope, goodreadsService, $http){
     var pageNums = book.book.num_pages;
     var goalPages = Math.ceil(pageNums / diffDays);
     $scope.message = "You should read " + goalPages + " pages each day!";
+    book.pages = goalPages;
+    book.pageNums = pageNums;
+    $timeout(function(){
+      $scope.progressValue = book.pages;
+    }, 2000);
+    book.show = !book.show;
 
     // var today = moment();
     // console.log(today);
@@ -41,13 +65,5 @@ app.controller('bookCtrl', function($scope, goodreadsService, $http){
     // var goalDays = bookDate.subtract(today);
     // console.log(goalDays);
 
-
-    // console.log($scope.date, date, book.book.num_pages);
-    // var bookDate = new Date(date);
-    // var today = new Date();
-    // console.log(bookDate, today);
-    // var diff = Math.abs(bookDate - today);
-    // var days = (((diff/1000)/60)/60)/24;
-    // console.log(days)
   };
 });

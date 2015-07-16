@@ -1,27 +1,36 @@
-<div class="">Readable</div>	
-<div align="right">
+<div class="logoutButton">
 	<a href="/logout"><button>Logout</button></a>
 </div>
+<div class="mainHead">Readable</div>	
 
 <div class="containter book-row">
-	<div class="border" ng-repeat="data in books">
-		<img class="bookCover" ng-click="toggleModal($index)" ng-src="{{data.book.image_url}}">
-		<h2 class="book-title"> {{ data.book.title }}</h2>
-		<h3> {{ data.book.authors.author.name }} </h3>
-		
+	<div class="border" ng-repeat="book in books">
+		<img class="bookCover" ng-click="toggleModal($index)" ng-src="{{book.book.image_url}}">
+		<h2 class="book-title"> {{ book.book.title }}</h2>
+		<h3> {{ book.book.authors.author.name }} </h3>
+		<h4 ng-hide="!book.show"> Goal pages per day: {{ book.pages }} </h4>
+<!-- Reading progress bar -->
+		<h4 ng-hide="!book.show"> Pages read so far:</h4>
+	  <progressbar ng-hide="!book.show" animate="true" max="book.book.num_pages" value="progressValue"><i><span count-to="{{book.pages}}" duration="1" count-from="{{book.pageNums}}"></span> / {{ book.pageNums }}</i></progressbar>
+<!-- Goal Modal -->
 		<modal-dialog show='modalShown[$index]' width='620px' height='67%'>
 			<p class="">Create a goal for finishing this book!<p>
 			<div class="col1">
-			  <datepicker date-format="longDate">
-			  	<input placeholder="Choose a date" ng-model="date" type="text" ng-change="onChange(date, data)"/>
-				</datepicker>
+<!-- Datepicker -->
+			  <nosepicker date-format="longDate">
+			  	<input placeholder="Choose a date" ng-model="date" type="text" ng-change="onChange(date, book)"/>
+				</nosepicker>
 			</div>
 			<div class="col2">
 				<p class="modalImage"> {{ message }} </p>
-				<img class="modalImage" ng-src="{{data.book.image_url}}">
+				<img class="modalImage" ng-src="{{book.book.image_url}}">
 			</div>
 		</modal-dialog>
-
+<!-- Update pages Modal -->
+		<modal-dialog>
+			<p>How many pages have you read?</p>
+			<input placeho>
+		</modal-dialog>
 	</div>
 </div>
 
