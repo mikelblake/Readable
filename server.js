@@ -6,7 +6,7 @@ var express = require('express'),
   session = require('express-session'),
 	GoodreadsStrategy = require('passport-goodreads').Strategy,
 	mongoose = require('mongoose'),
-  mongoUri = 'mongodb://localhost:27017/readable';
+  mongoUri = 'mongodb://https://radiant-bayou-9926.herokuapp.com/';
   
 
 require('request-debug')(request);
