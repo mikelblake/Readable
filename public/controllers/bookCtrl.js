@@ -1,14 +1,7 @@
 var app = angular.module('readingGoals');
 
 app.controller('bookCtrl', function($scope, goodreadsService, $http, $timeout){
-  // $scope.value = $scope.progressValue;
-  // $scope.max = 100;
-  // $scope.type = 'active';
-
-  // $scope.dateSet;
-  // $scope.dateMinLimit;
-  // $scope.MaxLimit;
-
+  
 $scope.pages = 0;
 
 	goodreadsService.getBooks('to-read').then(
@@ -33,9 +26,6 @@ $scope.pages = 0;
   };
 
 ////////////// Show modal when click on progress bar ///////////
-  // $scope.toggleModal2 = function(){
-  //   $scope.modal2Shown = !$scope.modal2Shown
-  // };
 
   $scope.modal2Shown = [];
   $scope.toggleModal2 = function(index) {
@@ -48,12 +38,9 @@ $scope.pages = 0;
 
 ////////////// Pages Progress Bar //////////////
   $scope.onClick = function(pagesRead){
-    $scope.pagesRead = pagesRead;
-    book.show = !book.show;
-
+    // $scope.pagesRead = 0;
+    $scope.progressValue = pagesRead; 
   };
-  
-  
   
 ////////////// Calculate Pages ///////////////
   $scope.onChange = function(date, book){
@@ -67,7 +54,8 @@ $scope.pages = 0;
     book.pages = goalPages;
     book.pageNums = pageNums;
     $timeout(function(){
-      $scope.progressValue = book.pages;
+      $scope.pagesRead = 0;
+      $scope.progressValue = $scope.pagesRead;
     }, 2000);
     book.show = !book.show;
 
