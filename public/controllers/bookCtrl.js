@@ -24,7 +24,6 @@ $scope.pages = 0;
 //////////// Show modal when click on book ////////////
 	$scope.modalShown = [];
   $scope.toggleModal = function(index) {
-    console.log(index, $scope.modalShown[index]);
     if(!$scope.modalShown[index]){
       $scope.modalShown[index] = true;
     } else {
@@ -33,12 +32,27 @@ $scope.pages = 0;
     // $scope.modalShown[index] = !$scope.modalShown[index];
   };
 
+////////////// Show modal when click on progress bar ///////////
+  // $scope.toggleModal2 = function(){
+  //   $scope.modal2Shown = !$scope.modal2Shown
+  // };
+
+  $scope.modal2Shown = [];
+  $scope.toggleModal2 = function(index) {
+    if(!$scope.modal2Shown[index]){
+      $scope.modal2Shown[index] = true;
+    } else {
+      $scope.modal2Shown[index] = false;
+    }
+  };
+
 ////////////// Pages Progress Bar //////////////
+  $scope.onClick = function(pagesRead){
+    $scope.pagesRead = pagesRead;
+    book.show = !book.show;
+
+  };
   
-  // var amt = 75;
-  
-  // $scope.countTo = amt;
-  // $scope.countFrom = 0;
   
   
 ////////////// Calculate Pages ///////////////

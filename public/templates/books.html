@@ -9,9 +9,6 @@
 		<h2 class="book-title"> {{ book.book.title }}</h2>
 		<h3> {{ book.book.authors.author.name }} </h3>
 		<h4 ng-hide="!book.show"> Goal pages per day: {{ book.pages }} </h4>
-<!-- Reading progress bar -->
-		<h4 ng-hide="!book.show"> Pages read so far:</h4>
-	  <progressbar ng-hide="!book.show" animate="true" max="book.book.num_pages" value="progressValue"><i><span count-to="{{book.pages}}" duration="1" count-from="{{book.pageNums}}"></span> / {{ book.pageNums }}</i></progressbar>
 <!-- Goal Modal -->
 		<modal-dialog show='modalShown[$index]' width='620px' height='67%'>
 			<p class="">Create a goal for finishing this book!<p>
@@ -27,10 +24,13 @@
 			</div>
 		</modal-dialog>
 <!-- Update pages Modal -->
-		<modal-dialog>
+		<modal-dialog show='modal2Shown[$index]' width='620px' height='67%'>
 			<p>How many pages have you read?</p>
-			<input placeho>
+			<input placeholder="Update Pages" ng-model="pagesRead" ng-change="onClick(pagesRead)">
 		</modal-dialog>
+<!-- Reading progress bar -->
+		<h4 ng-hide="!book.show"> Pages read so far:</h4>
+	  <progressbar ng-click="toggleModal2($index)" ng-hide="!book.show" animate="true" max="book.book.num_pages" value="progressValue"><i><span count-to="{{book.pagesRead}}" duration="1" count-from="{{book.pageNums}}"></span> / {{ book.pageNums }}</i></progressbar>
 	</div>
 </div>
 
