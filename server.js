@@ -6,9 +6,11 @@ var express = require('express'),
   session = require('express-session'),
 	GoodreadsStrategy = require('passport-goodreads').Strategy,
 	mongoose = require('mongoose'),
-  mongoUri = 'mongodb://https://radiant-bayou-9926.herokuapp.com/';
-  
+  mongoUri = 'mongodb://localhost:27017/readable';
+  // mongoUri = 'mongodb://https://radiant-bayou-9926.herokuapp.com/';
+var Firebase = require("firebase");
 
+  
 require('request-debug')(request);
 var app = express();
 var port = 8888;

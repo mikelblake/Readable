@@ -6,12 +6,12 @@
 <div class="containter book-row">
 	<div class="border" ng-repeat="book in books">
 		<img class="bookCover" ng-click="toggleModal($index)" ng-src="{{book.book.image_url}}">
-		<h2 class="book-title"> {{ book.book.title }}</h2>
+		<h2 class="book-title"><strong>{{ book.book.title }}</strong></h2>
 		<h3> {{ book.book.authors.author.name }} </h3>
 		<h4 ng-hide="!book.show"> Goal pages per day: {{ book.pages }} </h4>
 <!-- Goal Modal -->
 		<modal-dialog show='modalShown[$index]' width='620px' height='67%'>
-			<p class="">Create a goal for finishing this book!<p>
+			<p class="modalHead">Create a goal for finishing this book!<p>
 			<div class="col1">
 <!-- Datepicker -->
 			  <nosepicker date-format="longDate">
@@ -25,9 +25,11 @@
 		</modal-dialog>
 <!-- Update pages Modal -->
 		<modal-dialog show='modal2Shown[$index]' width='620px' height='67%'>
-			<p>How many pages have you read?</p>
-			<input placeholder="Update Pages" ng-model="pagesRead" >
-			<button ng-click="onClick(pagesRead)">Update</button>
+			<div class="top-gut" align="center">
+				<p class="modalHead">How many pages have you read?</p>
+				<input placeholder="Update Pages" ng-model="pagesRead" >
+				<button ng-click="onClick(pagesRead)">Update</button>
+			</div>
 		</modal-dialog>
 <!-- Reading progress bar -->
 		<h4 ng-hide="!book.show"> Pages read so far:</h4>

@@ -1,11 +1,13 @@
 var app = angular.module('readingGoals');
 
 app.controller('bookCtrl', function($scope, goodreadsService, $http, $timeout){
-  
+
+/////////// Goodreads API //////////  
 $scope.pages = 0;
 
 	goodreadsService.getBooks('to-read').then(
 			function(data){
+        console.log(data)
         var booksArr = data;
         goodreadsService.getBooks('currently-reading').then(
           function(data){

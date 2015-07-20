@@ -3,6 +3,11 @@
   font-family: 'Poiret One', cursive;
 }
 
+p, h2, h3, h4, h5, input {
+  font-family: 'Josefin Sans', sans-serif; 
+  font-weight: 100;
+}
+
 .backgroundImg {
   background: url("images/books-484766_1920.jpg") no-repeat center center fixed;
    -webkit-background-size: cover;
@@ -126,15 +131,26 @@ a {
 }
 
 .modalImage {
-  padding-left: 25%;
+  padding-left: 15%;
+  font-size: 25px;
+}
+  
+.modalHead {
+  font-size: 36px;
+  text-align: center;
 }
 
 .col1 {
  width: 48%;
- margin: 15px;
+ margin: 30px 0 0 20px;
 }
 
 .col2 {
   float: right;
   width: 48%;
+  margin-top: -20px;
+}
+
+.top-gut {
+  margin-top: 26%;
 }
