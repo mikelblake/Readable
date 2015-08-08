@@ -102,11 +102,9 @@ app.get('/logout', function(req, res){
 // //Book endpoints
 // app.get('/api/products', bookCtrl.readProduct);
 
-
-
 // //User endpoints
 
-// app.post('/api/user', userCtrl.createUser);
+app.post('/api/user', userCtrl.createUser);
 app.get('/api/user', userCtrl.readUser);
 // app.put('/api/user/:id', userCtrl.updateUser);
 // app.delete('/api/user', userCtrl.deleteUser);

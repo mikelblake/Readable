@@ -12,7 +12,6 @@ $scope.pages = 0;
         goodreadsService.getBooks('currently-reading').then(
           function(data){
             $scope.books = booksArr.concat(data);
-            // console.log($scope.books);
           });
 			});
   
