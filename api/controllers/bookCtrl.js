@@ -2,9 +2,9 @@ var book = require('../models/book');
 
 module.exports = {
 
-	createProduct: function(req, res){
-		newProduct = new Product(req.body);
-		newProduct.save(function(err, result) {
+	createBook: function(req, res){
+		newBook = new Book(req.body);
+		newBook.save(function(err, result) {
 			if(err) {
 				return res.sendStatus(500);
 			} else {
@@ -13,34 +13,34 @@ module.exports = {
 		});
 	},
 
-	readProduct: function(req, res){
-		Product.find(req.query, function(err, result){
-			if(err){
-				return res.status(500).json(err);
-			} else {
-				return res.json(result);
-			}
-		});
-	},
+	// readBook: function(req, res){
+	// 	Book.find(req.query, function(err, result){
+	// 		if(err){
+	// 			return res.status(500).json(err);
+	// 		} else {
+	// 			return res.json(result);
+	// 		}
+	// 	});
+	// },
 
-	updateProduct: function(req, res){
-		Product.findByIdAndUpdate(req.params.id, req.body, function(err, result){
+	updateBook: function(req, res){
+		Book.findByIdAndUpdate(req.params.id, req.body, function(err, result){
 				if(err) {
 				return res.status(500).json(err);
 			} else {
 				res.send(result);
 			}
 		});
-	},
-
-	deleteProduct: function(req, res){
-		Product.remove(req.body, function(err, result){
-			if(err){
-				return res.status(500).json(err);
-			} else {
-				return res.json(result);
-			}
-		});
 	}
+
+	// deleteBook: function(req, res){
+	// 	Book.remove(req.body, function(err, result){
+	// 		if(err){
+	// 			return res.status(500).json(err);
+	// 		} else {
+	// 			return res.json(result);
+	// 		}
+	// 	});
+	// }
 
 };

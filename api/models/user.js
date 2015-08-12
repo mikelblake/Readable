@@ -1,7 +1,8 @@
 var mongoose = require('mongoose');
 
 var userSchema = new mongoose.Schema({
-	goodreadsId: { type: Number, required: true },
+	goodreadsId: { type: Number },
+	displayName: { type: String },
 	books: { }  //needs to be a refernce to the book schema
 });
 

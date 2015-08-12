@@ -5,21 +5,20 @@ app.service('userService', function($http){
 	return $http({
 		method: 'POST',
 		url: 'http://localhost:8888/api/users' + userId,
-		data: 
+		data: {
+			goodreadsId: goodreadsId,
+			books: books
+		}
 	});
 
 });
 
-// this.createUser = function(firstName, lastName, email, password) {
+// this.createUser = function(userId) {
 //   var dfd = $q.defer();
 //   $http({
 //     method: "POST",
-//     url: '/auth/local/signup',
+//     url: 'http://localhost:8888/api/users' + userId,
 //     data: {
-//       firstName: firstName,
-//       lastName: lastName,
-//       email: email,
-//       password: password
 //     }
 //   }).then(function(response) {
 //     console.log('new user from the service', response);
