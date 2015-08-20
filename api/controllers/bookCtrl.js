@@ -1,4 +1,4 @@
-var book = require('../models/book');
+var Book = require('../models/book');
 
 module.exports = {
 
@@ -32,15 +32,5 @@ module.exports = {
 			}
 		});
 	}
-
-	// deleteBook: function(req, res){
-	// 	Book.remove(req.body, function(err, result){
-	// 		if(err){
-	// 			return res.status(500).json(err);
-	// 		} else {
-	// 			return res.json(result);
-	// 		}
-	// 	});
-	// }
 
 };

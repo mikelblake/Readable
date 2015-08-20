@@ -87,6 +87,10 @@ a {
 }
 
 /*********************** MODAL STYLES ***********************/
+.modalAddButton {
+  padding: 3px;
+}
+
 .ng-modal-overlay {
   /* A dark translucent div that covers the whole screen */
   position:absolute;

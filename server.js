@@ -122,7 +122,7 @@ app.get('/logout', function(req, res){
 });
 
 // //Book endpoints
-// app.post('/api/books', bookCtrl.createBook);
+app.post('/api/books', bookCtrl.createBook);
 // app.put('/api/books/:id', bookCtrl.updateBook);
 
 // //User endpoints
