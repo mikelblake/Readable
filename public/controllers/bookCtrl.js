@@ -38,7 +38,6 @@ $scope.saveBook = function(){
   console.log(newBook);
   bookService.saveBook(newBook);
 
-  // $scope.modalShown = !$scope.modalShown;
 };
 
 ////////////// Show modal when click on progress bar ///////////
@@ -73,14 +72,5 @@ $scope.saveBook = function(){
       $scope.progressValue = $scope.pagesRead;
     }, 2000);
     book.show = !book.show;
-
-    // var today = moment();
-    // console.log(today);
-    // var day = new Date(date);
-    // var bookDate = moment(day);
-    // console.log(bookDate);
-    // var goalDays = bookDate.subtract(today);
-    // console.log(goalDays);
-
   };
 });

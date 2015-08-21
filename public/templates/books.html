@@ -10,7 +10,7 @@
 		<h3> {{ book.book.authors.author.name }} </h3>
 		<h4 ng-hide="!book.show"> Goal pages per day: {{ book.pages }} </h4>
 <!-- Goal Modal -->
-		<modal-dialog show='modalShown[$index]' width='620px' height='46%'>
+		<modal-dialog show='modalShown[$index]' width='620px' height='67%'>
 			<p class="modalHead">Create a goal for finishing this book!<p>
 			<div class="col1">
 <!-- Datepicker -->
@@ -25,7 +25,7 @@
 			</div>
 		</modal-dialog>
 <!-- Update pages Modal -->
-		<modal-dialog show='modal2Shown[$index]' width='620px' height='46%'>
+		<modal-dialog show='modal2Shown[$index]' width='620px' height='67%'>
 			<div class="top-gut" align="center">
 				<p class="modalHead">How many pages have you read?</p>
 				<input placeholder="Update Pages" ng-model="pagesRead" >

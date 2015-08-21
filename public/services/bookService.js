@@ -9,7 +9,6 @@ this.saveBook = function(newBook){
 			data: {
 				totalPages: newBook.pageNums,
 				finishDate: newBook.goalDate
-								// finishDate: finishDate
 			}
 		});
 	};
