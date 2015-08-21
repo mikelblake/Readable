@@ -13,7 +13,7 @@
 		<modal-dialog show='modalShown[$index]' width='620px' height='67%'>
 			<p class="modalHead">Create a goal for finishing this book!<p>
 			<div class="col1">
-<!-- Datepicker -->
+	<!-- Datepicker -->
 			  <nosepicker date-format="longDate">
 			  	<input placeholder="Choose a date" ng-model="date" type="text" ng-change="onChange(date, book)"/>
 				</nosepicker>
@@ -29,7 +29,7 @@
 			<div class="top-gut" align="center">
 				<p class="modalHead">How many pages have you read?</p>
 				<input placeholder="Update Pages" ng-model="pagesRead" >
-				<button ng-click="onClick(pagesRead)">Update</button>
+				<button ng-click="onClick(pagesRead); modal2Shown[$index] = !modal2Shown[$index]">Update</button>
 			</div>
 		</modal-dialog>
 <!-- Reading progress bar -->
