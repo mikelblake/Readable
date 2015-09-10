@@ -5,7 +5,7 @@
 
 <div class="containter book-row">
 	<div class="border" ng-repeat="book in books">
-		<img class="bookCover" ng-click="toggleModal($index)" ng-src="{{book.book.image_url}}">
+		<img class="bookCover hvr-grow" ng-click="toggleModal($index)" ng-src="{{book.book.image_url}}">
 		<h2 class="book-title"><strong>{{ book.book.title }}</strong></h2>
 		<h3> {{ book.book.authors.author.name }} </h3>
 		<h4 ng-hide="!book.show"> Goal pages per day: {{ book.pages }} </h4>
