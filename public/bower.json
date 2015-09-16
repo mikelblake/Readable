@@ -15,6 +15,5 @@
   ],
   "dependencies": {
     "angularjs-datepicker": "~0.2.5",
-    "moment": "~2.10.3"
   }
 }

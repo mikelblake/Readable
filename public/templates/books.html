@@ -38,7 +38,9 @@
 
 <!-- Reading progress bar -->
 		<h4 ng-hide="!book.show"> Pages read so far:</h4>
-	  <progressbar ng-click="toggleModal2($index)" ng-hide="!book.show" animate="true" max="book.book.num_pages" value="progressValue"><span count-to="{{progressValue}}" duration="1" count-from="{{book.pageNums}}"></span> / {{ book.pageNums }}</progressbar>
+		<div class="hvr-grow" style="width: 100%">
+	  <progressbar ng-click="toggleModal2($index)" ng-hide="!book.show" animate="true" max="book.book.num_pages" value="progressValue"><i><span count-to="{{progressValue}}" duration="1" count-from="{{book.pageNums}}"></span> / {{ book.pageNums }}</i></progressbar>
+	  </div>
 	</div>
 </div>
 
