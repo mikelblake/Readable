@@ -35,7 +35,6 @@ $scope.saveBook = function(){
     pageNums: $scope.pageNums,
     goalDate: $scope.goalDate
   };
-  console.log(newBook);
   bookService.saveBook(newBook);
 
 };
@@ -50,27 +49,35 @@ $scope.saveBook = function(){
       $scope.modal2Shown[index] = false;
     }
   };
-
-////////////// Pages Progress Bar //////////////
-  $scope.onClick = function(pagesRead){
-    $scope.progressValue = pagesRead; 
-  };
   
 ////////////// Calculate Pages ///////////////
   $scope.onChange = function(date, book){
     var today = new Date();
     $scope.goalDate = new Date(date);
     var timeDiff = Math.abs($scope.goalDate.getTime() - today.getTime());
-    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+    $scope.diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
     $scope.pageNums = book.book.num_pages;
-    var goalPages = Math.ceil($scope.pageNums / diffDays);
+    var goalPages = Math.ceil($scope.pageNums / $scope.diffDays);
     $scope.message = "You should read " + goalPages + " pages each day!";
     book.pages = goalPages;
     book.pageNums = $scope.pageNums;
     $timeout(function(){
       $scope.pagesRead = 0;
       $scope.progressValue = $scope.pagesRead;
-    }, 2000);
+    }, 1000);
     book.show = !book.show;
+  };
+
+////////////// Pages Progress Bar //////////////
+  $scope.onClick = function(pagesRead, book){
+    $scope.progressValue = pagesRead; 
+    $scope.updatedPageNums = $scope.pageNums - $scope.progressValue;
+
+    var today = new Date();
+    var timeDiff = Math.abs($scope.goalDate.getTime() - today.getTime());
+    $scope.diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+    var goalPages = Math.ceil($scope.updatedPageNums / $scope.diffDays);
+    book.pages = goalPages;
+    book.pageNums = $scope.pageNums;
   };
 });

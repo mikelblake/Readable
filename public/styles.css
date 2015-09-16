@@ -8,6 +8,14 @@ p, h2, h3, h4, h5, input {
   font-weight: 100;
 }
 
+h2 {
+  margin-bottom: 5px;
+}
+
+h3 {
+  margin-top: 5px;
+}
+
 .backgroundImg {
   background: url("images/books-484766_1920.jpg") no-repeat center center fixed;
    -webkit-background-size: cover;
@@ -98,9 +106,10 @@ a {
 /******************** Progress Bar ***********************/
 .progress { 
   color: #40576E;
-  height: 3em;
+  height: 2em;
   cursor: pointer;
-  i { line-height: 3.5em; }
+  border-radius: 2px;
+  i { line-height: 2em; }
 }
 
 .progress-bar { 
