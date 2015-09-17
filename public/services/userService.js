@@ -7,7 +7,7 @@ app.service('userService', function($http){
 		url: 'http://localhost:8888/api/users' + userId,
 		data: {
 			goodreadsId: goodreadsId,
-			books: books
+			// books: books
 		}
 	});
 

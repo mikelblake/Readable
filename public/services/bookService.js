@@ -4,11 +4,13 @@ app.service('bookService', function($http){
 
 this.saveBook = function(newBook){
 	 $http({
-			method: 'POST',
-			url: 'http://localhost:8888/api/books',  //need book endpoint
+			method: 'PUT',
+			url: 'http://localhost:8888/api/user',  //need book endpoint
 			data: {
-				totalPages: newBook.pageNums,
-				finishDate: newBook.goalDate
+				books: [
+				{totalPages: newBook.pageNums},
+				{finishDate: newBook.goalDate}
+				]
 			}
 		});
 	};

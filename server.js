@@ -11,7 +11,7 @@ var express = require('express'),
   cookieParser = require('cookie-parser');
   
 var app = express();
-var port = 8888;
+var port = 80;
 
 // CONTROLLERS
 
@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 passport.use(new GoodreadsStrategy({
     consumerKey: 'wXIuvQ4Icx6bai2S7FxwLQ',
     consumerSecret: 'QDxtKnP9BPEIFOOGf7yvkngbP3DKynHCYI3DHHObnW8',
-    callbackURL: "http://localhost:8888/auth/goodreads/callback"
+    callbackURL: "http://readible.co/auth/goodreads/callback"
   },
   function(token, tokenSecret, profile, done) {
     userCtrl.findOrCreate(profile).then(
@@ -90,14 +90,14 @@ app.get('/logout', function(req, res){
 });
 
 // //Book endpoints
-app.post('/api/books', bookCtrl.createBook);
+// app.post('/api/books', bookCtrl.createBook);
 // app.put('/api/books/:id', bookCtrl.updateBook);
 
 // //User endpoints
 
 // app.post('/api/user', userCtrl.createUser);
 // app.get('/api/user', userCtrl.readUser);
-// app.put('/api/user/:id', userCtrl.updateUser);
+app.put('/api/user/:id', userCtrl.updateUser);
 // app.delete('/api/user', userCtrl.deleteUser);
 
 mongoose.connect(mongoUri);

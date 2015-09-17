@@ -22,7 +22,6 @@ $scope.pages = 0;
     } else {
       $scope.modalShown[index] = false;
     }
-    // $scope.modalShown[index] = !$scope.modalShown[index];
   };
   $scope.hideModal = function() {
     $scope.show = false;
@@ -36,7 +35,6 @@ $scope.saveBook = function(){
     goalDate: $scope.goalDate
   };
   bookService.saveBook(newBook);
-
 };
 
 ////////////// Show modal when click on progress bar ///////////
@@ -70,14 +68,14 @@ $scope.saveBook = function(){
 
 ////////////// Pages Progress Bar //////////////
   $scope.onClick = function(pagesRead, book){
-    $scope.progressValue = pagesRead; 
-    $scope.updatedPageNums = $scope.pageNums - $scope.progressValue;
+    book.progressValue = pagesRead; 
+    book.updatedPageNums = book.pageNums - book.progressValue;
 
     var today = new Date();
     var timeDiff = Math.abs($scope.goalDate.getTime() - today.getTime());
     $scope.diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
-    var goalPages = Math.ceil($scope.updatedPageNums / $scope.diffDays);
+    var goalPages = Math.ceil(book.updatedPageNums / $scope.diffDays);
     book.pages = goalPages;
-    book.pageNums = $scope.pageNums;
+    // book.pageNums = $scope.pageNums;
   };
 });
