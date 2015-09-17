@@ -4,7 +4,7 @@ app.service('userService', function($http){
 
 	return $http({
 		method: 'POST',
-		url: 'http://localhost:8888/api/users' + userId,
+		url: '/api/users' + userId,
 		data: {
 			goodreadsId: goodreadsId,
 			// books: books
